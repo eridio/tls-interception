@@ -66,7 +66,7 @@ async fn main() {
     let ca = OpensslAuthority::new(private_key, ca_cert, MessageDigest::sha256(), 100_000);
     
     let proxy = ProxyBuilder::new()
-        .with_addr(SocketAddr::from(([127, 0, 0, 1], 2000)))
+        .with_addr(SocketAddr::from(([0, 0, 0, 0], 2000)))
         .with_rustls_client()
         .with_ca(ca)
         .with_http_handler(LogHandler {})
